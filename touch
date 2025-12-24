@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "🚀 Controleren op Flatpaks..."
+
+# Zorg dat Flathub aanwezig is
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+# Loop door de lijst in chezmoi.toml en installeer ze
+{{ range .flatpaks -}}
+echo "Instaleren van {{ . }}..."
+flatpak install -y flathub {{ . }}
+{{ end }}
+
+echo "✅ Alle Flatpaks zijn bijgewerkt!"

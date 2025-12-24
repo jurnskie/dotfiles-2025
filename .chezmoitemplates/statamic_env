@@ -1,0 +1,9 @@
+APP_NAME=Statamic
+APP_ENV=local
+# We laten Chezmoi de 1Password-check doen, maar de projectnaam komt uit Bash
+APP_KEY={{ onepasswordRead (printf "op://Private/Project-%s/APP_KEY" "${PROJECT_NAME}") }}
+APP_URL="https://${PROJECT_NAME}.ddev.site"
+
+DB_CONNECTION="mysql"
+DB_HOST="db"
+# ... rest van je env ...

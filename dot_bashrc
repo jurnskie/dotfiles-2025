@@ -25,3 +25,45 @@ fi
 unset rc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+
+# ssh 1password agent
+# Zorg dat SSH altijd de 1Password agent gebruikt
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+
+# --- DDEV & Project Shortcuts ---
+alias d="ddev"
+alias ds="ddev start"
+alias dpa="ddev pause"
+alias dr="ddev restart"
+alias dlog="ddev logs -f"
+alias dssh="ddev ssh"
+
+# --- Laravel Shortcuts (via DDEV) ---
+alias dart="ddev php artisan"
+alias mfs="ddev php artisan migrate:fresh --seed"
+alias dcomp="ddev composer"
+
+# --- Statamic Shortcuts (via DDEV) ---
+alias please="ddev php please"
+alias p-user="ddev php please user:create"
+alias p-cc="ddev php please cache:clear"
+alias p-st="ddev php please static:clear"
+alias p-ss="ddev php please stache:warm"
+
+# --- Utility ---
+alias dots="cd ~/.local/share/chezmoi"
+alias cma="chezmoi apply --force"
+
+
+
+
+# Laat een overzicht van belangrijke aliassen zien bij startup
+echo -e "\033[1;34m--- 🚀 Statamic & DDEV Shortcuts ---\033[0m"
+echo -e " \033[1mplease\033[0m  -> ddev php please"
+echo -e " \033[1mdart\033[0m    -> ddev php artisan"
+echo -e " \033[1mds / dr\033[0m -> ddev start / restart"
+echo -e " \033[1mcma\033[0m     -> chezmoi apply (voor nieuwe projecten)"
+echo -e "\033[1;34m------------------------------------\033[0m"
+echo ""
