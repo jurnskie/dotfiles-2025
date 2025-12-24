@@ -3,10 +3,10 @@
 # Stel de variabele in voor Bash
 export PROJECT_NAME="{{ . }}"
 
-mkdir -p ~/Code/${PROJECT_NAME}
+mkdir -p ~/Code/php/${PROJECT_NAME}
 
 # Genereer de .env - we wijzen nu naar het juiste pad
-cat <<EOF > ~/Code/${PROJECT_NAME}/.env
+cat <<EOF > ~/Code/php/${PROJECT_NAME}/.env
 {{ include ".chezmoitemplates/statamic_env" }}
 EOF
 
